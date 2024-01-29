@@ -1,0 +1,6 @@
+CREATE TABLE users(
+    username VARCHAR(10) NOT NULL,
+    pwd VARCHAR(8) NOT NULL,
+    email VARCHAR(30) NOT NULL,
+    createdAt DATETIME NOT NULL DEFAULT CURRENT_DATE
+);
