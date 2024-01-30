@@ -16,7 +16,7 @@ function get_username(object $pdo, string $username){
 function get_email(object $pdo, string $email){
     $query = "SELECT email FROM users where email = :email;";
     $stmt = $pdo->prepare($query);
-    $stmt->bindParam(":username", $email);
+    $stmt->bindParam(":email", $email);
     $stmt->execute();
 
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -35,8 +35,8 @@ function set_user(object $pdo, string $username, string $pwd, string $email){
     $hashedPwd = password_hash($pwd, PASSWORD_BCRYPT, $options);
 
     $stmt->bindParam(":username", $username);
-    $stmt->bindParam(":pwd", $pwd);
-    $stmt->bindParam(":email", $hashedPwd);
+    $stmt->bindParam(":pwd", $hashedPwd);
+    $stmt->bindParam(":email", $email);
     $stmt->execute();
 
     $result = $stmt->fetch(PDO::FETCH_ASSOC);

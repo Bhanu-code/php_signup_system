@@ -10,10 +10,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         require_once 'signup_model.inc.php';
         require_once 'signup_controller.inc.php';
         // require_once 'signup_view.inc.php';
-
+        
+        
         //ERROR HANDLERS
         $errors = [];
-
+        
         if(is_input_empty($username, $pwd, $email)){
             $errors["empty_input"] = "fill in all fields";
         }
@@ -26,11 +27,11 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
         if(is_email_registered($pdo, $email)){
             $errors["email_used"] = "email used!";
         }
-
-        require_once'config_session.inc.php';
+        
+        require_once 'config_session.inc.php';
 
         if($errors){
-            $_SESSION["error_signup"] = $errors;
+            $_SESSION["errors_signup"] = $errors;
             header("Location: ../index.php");
             die();
         }
