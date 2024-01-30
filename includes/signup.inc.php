@@ -7,10 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     try {
         require_once 'dbh.inc.php';
-        require_once 'signup_model.inc.php';
-        require_once 'signup_controller.inc.php';
-        // require_once 'signup_view.inc.php';
-
+        require_once 'model/signup_model.inc.php';
+        require_once 'controller/signup_controller.inc.php';
 
         //ERROR HANDLERS
         $errors = [];
@@ -28,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $errors["email_used"] = "email used!";
         }
 
-        require_once 'config_session.inc.php';
+        require_once 'config/config_session.inc.php';
 
         if ($errors) {
             $_SESSION["errors_signup"] = $errors;
