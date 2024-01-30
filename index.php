@@ -15,9 +15,12 @@ require_once 'includes/config_session.inc.php';
 <h3>Login</h3>
 
 <form action="includes/signup.inc.php" method="post">
-    <input type="text" name="username" placeholder="Username">
+    <!-- <input type="text" name="username" placeholder="Username">
     <input type="password" name="pwd" placeholder="Password">
-    <input type="email" name="email" placeholder="Email">
+    <input type="email" name="email" placeholder="Email"> -->
+    <?php
+    signup_inputs();
+    ?>
     <button>Sign Up</button>
 </form>
 
